@@ -16,7 +16,7 @@ Answers are short and spoken aloud. Suspicious emails are flagged first. **Email
 
 For texts, calls, calendar and directions, use Siri with CarPlay's built-in features; the assistant fills the gap for email.
 
-**Setup:** see [docs/setup.md](docs/setup.md).
+**Setup (Windows PC + iPhone):** see [docs/setup.md](docs/setup.md).
 
 | Part | File |
 |------|------|
@@ -24,6 +24,7 @@ For texts, calls, calendar and directions, use Siri with CarPlay's built-in feat
 | Gmail search, read, send | `assistant/gmail_client.py` |
 | Web endpoint the iPhone Shortcut calls | `assistant/server.py` |
 | One-time Gmail sign-in | `scripts/authorize_gmail.py` |
+| Double-click to start the service on Windows | `start-assistant.bat` |
 | Tests (no keys or network needed) | `tests/test_agent.py` |
 
 ## Goal
