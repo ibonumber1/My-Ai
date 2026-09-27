@@ -2,7 +2,29 @@
 
 A personal AI assistant that handles my desktop work: the repetitive, time-consuming computer tasks that don't need my judgment, done accurately so I can focus on the work that does.
 
-> **Status:** Early planning. No code yet. This README describes the goal and the intended design.
+> **Status:** First feature built: a hands-free **driving assistant for Gmail** (see below). Everything else is still at the planning stage.
+
+## Driving assistant (available now)
+
+Say *"Hey Siri, Ask My Assistant"* in the car, then speak naturally:
+
+- "Any important emails this morning?"
+- "Read me the one from the bank. Is it a scam?"
+- "Reply to Mike and say I'll call him after 3."
+
+Answers are short and spoken aloud. Suspicious emails are flagged first. **Emails are only sent after you say "yes"** to a read-back of the draft, and that check is enforced in code rather than left to the AI.
+
+For texts, calls, calendar and directions, use Siri with CarPlay's built-in features; the assistant fills the gap for email.
+
+**Setup:** see [docs/setup.md](docs/setup.md).
+
+| Part | File |
+|------|------|
+| Voice request → Claude → spoken answer, with the send-confirmation gate | `assistant/agent.py` |
+| Gmail search, read, send | `assistant/gmail_client.py` |
+| Web endpoint the iPhone Shortcut calls | `assistant/server.py` |
+| One-time Gmail sign-in | `scripts/authorize_gmail.py` |
+| Tests (no keys or network needed) | `tests/test_agent.py` |
 
 ## Goal
 
@@ -55,10 +77,12 @@ You (plain-language request)
 
 ## Roadmap
 
-- [ ] Choose the language and framework (likely Python with the Claude API / Agent SDK)
-- [ ] Set up the project structure and secure secret handling (`.env`)
-- [ ] First tool: file organization (sorting and renaming files)
-- [ ] Add email and calendar integration
+- [x] Choose the language and framework (Python with the Claude API)
+- [x] Set up the project structure and secure secret handling (`.env`)
+- [x] Driving assistant: voice access to Gmail from the iPhone, with confirm-before-send
+- [ ] Driving assistant: add Google Calendar (hear and change appointments)
+- [ ] Move the service to a small cloud server so the home computer needn't stay on
+- [ ] File organization (sorting and renaming files)
 - [ ] Add document and spreadsheet handling
 - [ ] Add browser and desktop control
 - [ ] Add an action log and a review/undo step
@@ -66,7 +90,7 @@ You (plain-language request)
 
 ## Getting started
 
-Setup instructions will be added once the first working version exists.
+See [docs/setup.md](docs/setup.md) for step-by-step setup of the driving assistant.
 
 ## License
 
